@@ -9,3 +9,6 @@
   asset/map.png：这是赛道的俯视图（我自己手画的）。
 ## 改进方向
   这个仿真没有暂停看动态画面的功能。
+## 编译为动态库方法：
+  法1：在XinDong_AlgorithmSimulation目录下打开cmd，输入gcc -shared -o asset/track.dll -fPIC asset/track.c
+  法2：在XinDong_AlgorithmSimulation目录下打开powershell，输入gcc -shared -o 'asset/track.dll' 'asset/track.c'
