@@ -1,8 +1,8 @@
 # XinDong_AlgorithmSimulation
 ## 使用方法
-    首先在asset/track.c中定义循迹算法函数，函数原型为 float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH])，也即接收的入参是一个CAM_IMAGE_HEIGHT * CAM_IMAGE_WIDTH大小的uint8_t型数组，返回值是一个属于[-1, 1]的浮点数（归一化后的舵机输出值）。然后将track.c编译为Windows动态库文件（.dll）放在asset目录下。最后在XinDong_AlgorithmSimulation目录下运行WayFinder.py文件即可。
+首先在asset/track.c中定义循迹算法函数，函数原型为 float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH])，也即接收的入参是一个CAM_IMAGE_HEIGHT * CAM_IMAGE_WIDTH大小的uint8_t型数组，返回值是一个属于[-1, 1]的浮点数（归一化后的舵机输出值）。然后将track.c编译为Windows动态库文件（.dll）放在asset目录下。最后在XinDong_AlgorithmSimulation目录下运行WayFinder.py文件即可。
   
-    运行后会显示出小车在赛道俯视图上的实时动画。小车是红色矩形，小车所看到的地面范围用一个绿色梯形框了出来。左上角贴出了小车看到的视野经过透视变换后的矩形画面，有助于结合分析实际场景和摄像头画面的关系。按q键即可退出程序，如果小车走出了画面范围程序也会终止。
+运行后会显示出小车在赛道俯视图上的实时动画。小车是红色矩形，小车所看到的地面范围用一个绿色梯形框了出来。左上角贴出了小车看到的视野经过透视变换后的矩形画面，有助于结合分析实际场景和摄像头画面的关系。按q键即可退出程序，如果小车走出了画面范围程序也会终止。
 ## 文件说明
   WayFinder.py：运行仿真的主要脚本文件；
   
