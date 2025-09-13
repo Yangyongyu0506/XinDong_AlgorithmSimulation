@@ -6,7 +6,7 @@ import random
 import logging
 import time
 import threading
-import ctypes
+import ctypes # 这个库用于C语言函数的调用
 
 class WayFinder():
     """
@@ -178,7 +178,7 @@ class WayFinder():
             t_motion = threading.Thread(target=self.motion_loop, daemon=True)
             t_cam.start()
             t_motion.start()
-            self.gui_loop()      # 保持在主线程
+            self.gui_loop()      # GUI放在主线程
             self.stop.set()
             t_cam.join()
             t_motion.join()
@@ -193,6 +193,7 @@ class WayFinder():
         return frame
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO) # 这里配置了日志输出级别为INFO，但是并没有加实际的日志输出
     wf = WayFinder(track_map_dir="asset/map.png")
+
     wf.spin()
