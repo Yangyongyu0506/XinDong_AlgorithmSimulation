@@ -2,7 +2,7 @@
 ## 使用方法
 首先在asset/track.c中定义循迹算法函数，函数原型为：
 
-    float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH])
+    float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH]);
 
 也即接收的入参是一个CAM_IMAGE_HEIGHT * CAM_IMAGE_WIDTH大小的uint8_t型数组，返回值是一个属于[-1, 1]的浮点数（归一化后的舵机输出值）。然后将track.c编译为Windows动态库文件（.dll）放在asset目录下。最后在XinDong_AlgorithmSimulation目录下运行WayFinder.py文件即可。
   
@@ -26,3 +26,9 @@
 法2：在XinDong_AlgorithmSimulation目录下打开powershell，输入：
 
     gcc -shared -o 'asset/track.dll' 'asset/track.c'
+并回车
+##  Python三方库依赖
+如果在XinDong_AlgorithmSimulation下运行WayFinder.py报错，就在命令行输入：
+
+    pip install opencv-python numpy
+并回车
