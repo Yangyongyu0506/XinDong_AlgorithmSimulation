@@ -1,9 +1,10 @@
 # XinDong_AlgorithmSimulation
 ## 使用方法
 首先在asset/track.c中定义循迹算法函数，函数原型为：
-
-    float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH]);
-
+### C
+```C
+float track(uint8_t img[CAM_IMAGE_HEIGHT][CAM_IMAGE_WIDTH]);
+```
 也即接收的入参是一个CAM_IMAGE_HEIGHT * CAM_IMAGE_WIDTH大小的uint8_t型数组，返回值是一个属于[-1, 1]的浮点数（归一化后的舵机输出值）。然后将track.c编译为Windows动态库文件（.dll）放在asset目录下。最后在XinDong_AlgorithmSimulation目录下运行WayFinder.py文件即可。
   
 运行后会显示出小车在赛道俯视图上的实时动画。小车是红色矩形，小车所看到的地面范围用一个绿色梯形框了出来。左上角贴出了小车看到的视野经过透视变换后的矩形画面，有助于结合分析实际场景和摄像头画面的关系。按q键即可退出程序，如果小车走出了画面范围程序也会终止。
@@ -20,15 +21,20 @@
   这个仿真没有暂停看动态画面的功能。
 ## 编译为动态库方法
 法1：在XinDong_AlgorithmSimulation目录下打开cmd，输入：
-
-    gcc -shared -o asset/track.dll -fPIC asset/track.c
-  
+### CMD
+```CMD
+gcc -shared -o asset/track.dll -fPIC asset/track.c
+```
 法2：在XinDong_AlgorithmSimulation目录下打开powershell，输入：
-
-    gcc -shared -o 'asset/track.dll' 'asset/track.c'
+### powershell
+```powershell
+gcc -shared -o 'asset/track.dll' 'asset/track.c'
+```
 并回车
 ##  Python三方库依赖
 如果在XinDong_AlgorithmSimulation下运行WayFinder.py报错，就在命令行输入：
-
-    pip install opencv-python numpy
+### CMD
+```CMD
+pip install opencv-python numpy
+```
 并回车
